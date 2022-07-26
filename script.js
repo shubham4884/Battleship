@@ -78,26 +78,18 @@ function startGame(){
     if(isStarted==false){
         //created player object
     let player1 = new Player(usernameInput.value);
-    //adds it to the players array for later easy acces globally
     players.push(player1)
-    //sets the player name to the input
     player1name.innerHTML = usernameInput.value;
-    //created the  object
     let  = new Player(' COMPUTER');
-    //adds  to players array
     players.push()
     enemyName.innerHTML = " COMPUTER";
-    //created gamebaord for player and 
     createUIgameboard('player');
     let playerGameboard = new Gameboard('player');
     let enemyGameboard = new Gameboard('COMPUTER');
     createUIgameboard('COMPUTER')
-    //adds the gameboards to an array for easy later acces
     gameboards.push(playerGameboard)
     gameboards.push(enemyGameboard)
-    //starts the COMPUTER function that places COMPUTER's ships
     COMPUTER();
-    //sets the game as started
     isStarted = true;
     } else{
         //if the game is already started, show an error
@@ -163,7 +155,6 @@ function handleHit(i,j,p){
                         }else {
                             logsWindow.innerHTML = "Not a valid move";
                         }            }else if(shipCounter === 7){
-                            //this makes sure you can't click anymore on the Player's board after you placed your ship
                 startRound();
             } 
 }else if(p=='COMPUTER'){
@@ -171,28 +162,19 @@ function handleHit(i,j,p){
     if(gameboards[1].board[i][j]=='s'){
         //sets cell's background to green if the hit is successful
         document.getElementById(`cell${i}x${j}x${p}`).style.cssText = "background-color: green";
-        //show a confirmation message
         hitStatus.innerHTML = "You hit!";
-        //marks the position with an "X" inside the gamebaoard array
         gameboards[1].board[i][j]= 'x';
-        //removes the event listener so you can't click the same cell multiple times
         document.getElementById(`cell${i}x${j}x${p}`).removeAttribute('onclick')
-        //increase the hit counter
         players[1].hits++;
-        //checks if the game is won
         checkWinStatus();
-        //makes COMPUTER to hit
         aiHit();
      
 
     } else {
         //it turns the background red if you miss the shot
         document.getElementById(`cell${i}x${j}x${p}`).style.cssText = "background-color: red";
-        //shows a message
         hitStatus.innerHTML = "You missed!";
-        //set the position as "m" in the gameboard array
         gameboards[1].board[i][j]= 'm';
-        //removes the event listener to stop player from clicking the same cell again
         document.getElementById(`cell${i}x${j}x${p}`).removeAttribute('onclick');
         checkWinStatus();
         aiHit();
@@ -203,17 +185,8 @@ function handleHit(i,j,p){
         hitStatus.innerHTML = `Please place all your ships`
     }
 
-
-
 }
 }
-
-
-
-
-
-
-
 
 
 let aiShipCounter = 0;
@@ -299,7 +272,6 @@ function aiShipPlace(i,j,p,l){
     console.log(aiShipCounter)
     for(let a=l;a>0;a--){
         
-        //marks the positions as "S" in the gameboard array
         gameboards[1].board[i][j] = 's';
 
         i--;
@@ -345,7 +317,6 @@ function startRound(){
     logsWindow.innerHTML = "The round has started! Attack your target!"
    
 }
-//counts how many possible successful hits are on the COMPUTER's gameboard
 function countShipsAI(){
     let count = 0;
     for(let i=0;i<9;i++){
@@ -358,9 +329,7 @@ function countShipsAI(){
     return count;
 }
 function checkWinStatus(){
-    //if COMPUTER hits counter is 0, then the COMPUTER loses
     let count = countShipsAI();
-    //for the player, it is working as intended so the number of possible hits is always 16
     if(players[0].hits==16){
         finishGame(players[1].username);
     }else if(count==0){
