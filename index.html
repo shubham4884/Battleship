@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="header">
+        <div class="menu">
+            <div class="inputs">
+                <input type="text" id="usernameInput" placeholder="Username..."> 
+
+            </div>
+            <div class="buttons">
+
+                <button id="startGameBtn" onclick="startGame()">Start game</button>
+                <button id="restart" onclick="window.location.reload()">Restart</button>
+
+            </div>
+        </div>
+        <div class="status">
+            <div class="logs">Enter your name and press start!</div>
+        </div>
+        <div class="ships">
+            <div class="ship" id="ship1">
+                <div class="container">
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+                </div>
+                <div class="ship1counter shipC"></div>
+            </div>
+            <div class="ship" id="ship2"><div class="container">
+                <div class="square"></div>
+                <div class="square"></div>
+                <div class="square"></div>
+            </div>
+                <div class="ship2counter shipC"></div>
+            </div>
+            <div class="ship" id="ship3">
+                <div class="container">
+                <div class="square"></div>
+                <div class="square"></div></div>
+                <div class="ship3counter shipC"></div>
+            </div>
+            <div class="ship" id="ship4"><div class="container">
+                <div class="square"></div>
+            </div>
+                <div class="ship4counter shipC"></div>
+            </div>
+        </div>
+    </div>
+    <div class="leftPanel">
+        <div class="leftHeader">
+            <div class="player1name"></div>
+        </div>
+            <div class="mainLeft"></div>
+    </div>
+    <div class="rightPanel">
+        <div class="rightHeader">
+            <div class="player2name"></div>
+        </div>
+        <div class="mainRight"></div>
+    </div>
+
+</body>
+</html>
